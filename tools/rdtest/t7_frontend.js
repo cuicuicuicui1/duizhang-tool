@@ -39,7 +39,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   H.section('准备：通过 HTTP 造一份真实数据');
   const U = {};
   for (const u of samples.EXPECTED.units) {
-    const r = await jpost(B, '/api/units', { name: u.name, type: u.type, contact: '张经理', phone: '0310-11112222', address: '邯郸市某区某路 1 号' });
+    const r = await jpost(B, '/api/units', { name: u.name, type: u.type, contact: '张经理', phone: '0310-11112222', address: '某市某区某路 1 号' });
     U[u.key] = r.data;
   }
   await jput(B, '/api/config', { company: samples.EXPECTED.ourCompany });
@@ -133,7 +133,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   H.check('单位列表已加载（3 家）', S.units.length, 3);
   H.check('期间已加载', S.periods.length >= 1, true);
   H.check('浏览器探测结果显示', /PDF/.test(doc.getElementById('sideBrowser').textContent), true);
-  H.check('顶部显示公司名', /恒信机电/.test(doc.getElementById('companyName').textContent), true);
+  H.check('顶部显示公司名', /中和机电/.test(doc.getElementById('companyName').textContent), true);
 
   H.section('逐个 Tab 切换渲染（jsdom 无头）');
   const tabText = {};

@@ -1,14 +1,14 @@
 {
   "ourCompany": {
-    "name": "邯郸市恒信机电设备有限公司",
-    "address": "河北省邯郸市丛台区人民路 128 号 5 层",
+    "name": "某市中和机电设备有限公司",
+    "address": "某省省某市丛台区人民路 128 号 5 层",
     "phone": "0310-88886666",
     "contact": "李会计"
   },
   "units": [
     {
       "key": "jia",
-      "name": "邯郸市甲辰建材有限公司",
+      "name": "某市甲辰建材有限公司",
       "type": "customer",
       "account": "应收账款",
       "rows": 4,
@@ -18,7 +18,7 @@
     },
     {
       "key": "yi",
-      "name": "河北乙顺机电设备有限公司",
+      "name": "乙顺机电设备有限公司",
       "type": "supplier",
       "account": "应付账款",
       "rows": 4,
@@ -28,7 +28,7 @@
     },
     {
       "key": "bing",
-      "name": "邯郸市丙通物流有限公司",
+      "name": "某市丙通物流有限公司",
       "type": "customer",
       "account": "应收账款",
       "rows": 5,

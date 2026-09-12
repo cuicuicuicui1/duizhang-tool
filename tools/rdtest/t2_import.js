@@ -94,14 +94,14 @@ H.section('s02 .xls 老格式 / s03 GBK CSV / s04 UTF-8 BOM');
   const a = analyze('s02_老格式xls_2003.xls');
   H.check('xls 解析出表头', a.sheets[0].headerRowNo, 2);
   H.check('xls 数据行数', a.sheets[0].dataRows, 2);
-  H.check('标题行给出单位名建议', /邯郸市某某商贸有限公司/.test(a.unitHints[0].guess), true);
+  H.check('标题行给出单位名建议', /某市某某商贸有限公司/.test(a.unitHints[0].guess), true);
   H.check('单位列不存在时 unitHits 为空', a.unitHits.length, 0);
 }
 {
   const buf = readSample('s03_GBK编码_无BOM.csv');
   const dec = importer.decodeText(buf);
   H.check('GBK 编码被识别', dec.encoding, 'gb18030');
-  H.check('GBK 中文无乱码', /邯郸市某某商贸有限公司/.test(dec.text), true);
+  H.check('GBK 中文无乱码', /某市某某商贸有限公司/.test(dec.text), true);
   const a = importer.analyze({ buffer: buf, filename: 's03_GBK编码_无BOM.csv', config: cfg });
   H.check('GBK csv 表头命中', Object.keys(a.sheets[0].mapping).length >= 4, true);
   H.check('GBK csv 数据行数', a.sheets[0].dataRows, 2);
@@ -445,8 +445,8 @@ H.section('自动建档案 / 复用已档案 / 缺单位时明确报错');
   // 全新单位名 → 自动建档
   const rows = [
     ['日期', '单位名称', '摘要', '借方金额', '贷方金额'],
-    ['2026-08-05', '  邯郸市丁旺五金有限公司  ', '销售开票', 1000, 0],
-    ['2026-08-06', '邯郸市丁旺五金有限公司', '销售开票', 2000, 0],
+    ['2026-08-05', '  某市丁旺五金有限公司  ', '销售开票', 1000, 0],
+    ['2026-08-06', '某市丁旺五金有限公司', '销售开票', 2000, 0],
   ];
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(rows), 'S');
@@ -462,7 +462,7 @@ H.section('自动建档案 / 复用已档案 / 缺单位时明确报错');
     plans: [{ sheetName: 'S', include: true, headerRow: a.sheets[0].headerRowNo, mapping: a.sheets[0].mapping, account: '应收账款' }],
   });
   H.check('自动新建 1 个单位', r.unitsCreated.length, 1);
-  H.check('新建名称已 trim', r.unitsCreated[0].name, '邯郸市丁旺五金有限公司');
+  H.check('新建名称已 trim', r.unitsCreated[0].name, '某市丁旺五金有限公司');
   H.check('带空格与不空格视为同一家', r.added, 2);
 
   // 加别名后用另一个名称写法导入 → 复用同一档案
@@ -484,7 +484,7 @@ H.section('自动建档案 / 复用已档案 / 缺单位时明确报错');
   H.check('别名命中后不再新建', r2.unitsCreated.length, 0);
   H.check('别名命中入库到同一档案', store.readJson('ledgers.json').filter((e) => e.sourceFile === 'alias.xlsx')[0].unitId, r.unitsCreated[0].id);
 
-  // s13 已经自动建过「邯郸市某某商贸有限公司」，s03 应直接复用
+  // s13 已经自动建过「某市某某商贸有限公司」，s03 应直接复用
   const r3 = importSample('s03_GBK编码_无BOM.csv', null, '应收账款');
   H.check('s13 建立的档案被 s03 复用', r3.r.unitsCreated.length, 0);
 
