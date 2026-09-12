@@ -140,7 +140,7 @@ A：全部存在本机项目目录的 `data/` 下，**不联网、不上传、�
 
 ---
 
-## 七、给懂技术的人
+## 七、说明
 
 ```
 start.bat / server.js        入口（Express 本地服务，端口 3210，可用 DZ_PORT 改）
@@ -164,7 +164,7 @@ tools/rdtest/                六层测试脚本
 tools/fix-deps.js            依赖完整性自检（受限网络下 npm 漏文件时用它补）
 ```
 
-跑测试：
+运行测试：
 
 ```bash
 node tools/rdtest/run_all.js          # 全部（约 4 分钟）
