@@ -1,0 +1,116 @@
+{
+  "ourCompany": {
+    "name": "邯郸市恒信机电设备有限公司",
+    "address": "河北省邯郸市丛台区人民路 128 号 5 层",
+    "phone": "0310-88886666",
+    "contact": "李会计"
+  },
+  "units": [
+    {
+      "key": "jia",
+      "name": "邯郸市甲辰建材有限公司",
+      "type": "customer",
+      "account": "应收账款",
+      "rows": 4,
+      "debitFen": 23000000,
+      "creditFen": 16000000,
+      "closingFen": 7000000
+    },
+    {
+      "key": "yi",
+      "name": "河北乙顺机电设备有限公司",
+      "type": "supplier",
+      "account": "应付账款",
+      "rows": 4,
+      "debitFen": 13000000,
+      "creditFen": 25000000,
+      "closingFen": 12000000
+    },
+    {
+      "key": "bing",
+      "name": "邯郸市丙通物流有限公司",
+      "type": "customer",
+      "account": "应收账款",
+      "rows": 5,
+      "debitFen": 2000000,
+      "creditFen": 0,
+      "closingFen": 2000000
+    }
+  ],
+  "cutoff": "2026-08-31",
+  "period": "2026-08",
+  "replies": {
+    "jia": {
+      "theirBalanceFen": 7000000,
+      "detail": [
+        {
+          "date": "2026-08-03",
+          "summary": "销售开票 A-2608031",
+          "debitFen": 15000000,
+          "creditFen": 0
+        },
+        {
+          "date": "2026-08-12",
+          "summary": "收到货款 电汇",
+          "debitFen": 0,
+          "creditFen": 10000000
+        },
+        {
+          "date": "2026-08-20",
+          "summary": "销售开票 A-2608027",
+          "debitFen": 8000000,
+          "creditFen": 0
+        },
+        {
+          "date": "2026-08-28",
+          "summary": "收到货款 电汇",
+          "debitFen": 0,
+          "creditFen": 6000000
+        }
+      ],
+      "expect": "一致"
+    },
+    "yi": {
+      "theirBalanceFen": 8000000,
+      "detail": [
+        {
+          "date": "2026-08-05",
+          "summary": "采购入库",
+          "debitFen": 0,
+          "creditFen": 20000000
+        },
+        {
+          "date": "2026-08-18",
+          "summary": "支付货款",
+          "debitFen": 12000000,
+          "creditFen": 0
+        }
+      ],
+      "expect": "2 笔己方有对方无（50,000 与 10,000）"
+    },
+    "bing": {
+      "theirBalanceFen": 2000000,
+      "detail": [
+        {
+          "date": "2026-08-31",
+          "summary": "运输费汇总入账（5 笔合并）",
+          "debitFen": 2000000,
+          "creditFen": 0
+        }
+      ],
+      "expect": "5 笔己方明细 ↔ 1 笔对方合并入账，组合匹配",
+      "asCounterpartyLedger": {
+        "theirBalanceFen": 2000000,
+        "signFlip": true,
+        "detail": [
+          {
+            "date": "2026-08-31",
+            "summary": "运输费汇总入账（5 笔合并）",
+            "debitFen": 0,
+            "creditFen": 2000000
+          }
+        ]
+      }
+    }
+  }
+}

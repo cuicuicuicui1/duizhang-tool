@@ -1,0 +1,43 @@
+<!-- 明细附页模板（逐笔往来明细，作为对账函的附页单独分页） -->
+<div class="detail-page">
+  <div class="detail-title">往来款项明细附页</div>
+  <div class="detail-meta">
+    单位：{{unitName}}　｜　对账截止日：{{cutoffDateText}}　｜　对账函编号：{{serialNo}}　｜　共 {{rowCount}} 笔
+  </div>
+
+  <table class="detail">
+    <thead>
+      <tr>
+        <th style="width: 7%">序号</th>
+        <th style="width: 13%">日期</th>
+        <th>摘要</th>
+        <th style="width: 15%">借方金额</th>
+        <th style="width: 15%">贷方金额</th>
+        <th style="width: 16%">余额</th>
+        <th style="width: 10%">凭证号</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{detailRowsHtml}}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td class="c" colspan="3">本期合计</td>
+        <td class="num">{{totalDebitText}}</td>
+        <td class="num">{{totalCreditText}}</td>
+        <td class="num">{{closingText}}</td>
+        <td></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="detail-meta">
+    期初余额：{{openingText}}（口径：{{openingSource}}）
+  </div>
+
+  <div class="sign-row">
+    <span>我方单位（盖章）：{{ourCompanyName}}</span>
+    <span>经办人：____________</span>
+    <span>日期：____________</span>
+  </div>
+</div>

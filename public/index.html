@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>往来单位对账函工具</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <h1>往来对账工具</h1>
+      <p>对账函生成 · 回函核对 · 归档</p>
+    </div>
+    <nav class="nav" id="nav"></nav>
+    <div class="foot">
+      <div id="sideBrowser">PDF 引擎检测中…</div>
+      <div id="sideVersion">本地单机版</div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <h2 id="tabTitle">首页</h2>
+      <div class="right">
+        <span id="companyName" class="muted"></span>
+        <button class="sm" onclick="refreshAll()">刷新</button>
+      </div>
+    </header>
+    <div class="content">
+      <section class="tab" id="tab-home"><div id="homeBody"></div></section>
+      <section class="tab" id="tab-units"><div id="unitsBody"></div></section>
+      <section class="tab" id="tab-import"><div id="importBody"></div></section>
+      <section class="tab" id="tab-templates"><div id="templatesBody"></div></section>
+      <section class="tab" id="tab-generate"><div id="generateBody"></div></section>
+      <section class="tab" id="tab-reply"><div id="replyBody"></div></section>
+      <section class="tab" id="tab-archive"><div id="archiveBody"></div></section>
+      <section class="tab" id="tab-settings"><div id="settingsBody"></div></section>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal"><div class="box" id="modalBox"></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="/tabs.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

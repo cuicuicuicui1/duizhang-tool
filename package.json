@@ -1,0 +1,26 @@
+{
+  "name": "duizhang",
+  "version": "1.0.0",
+  "description": "往来单位对账函批量生成与回函核对工具 — 单机运行，会计自助，数据不出本机",
+  "license": "MIT",
+  "private": true,
+  "description": "往来单位对账函批量生成与回函核对工具",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node tools/rdtest/run_all.js"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "exceljs": "^4.4.0",
+    "express": "^4.21.2",
+    "http-proxy-agent": "^7.0.2",
+    "iconv-lite": "^0.6.3",
+    "proxy-agent": "^6.5.0",
+    "puppeteer-core": "^23.11.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.1"
+  }
+}

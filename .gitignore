@@ -1,0 +1,11 @@
+# 运行时数据（用户自己的账目数据，绝不入库）
+data/
+backups/
+
+# 依赖与测试运行目录
+node_modules/
+tools/rdtest/.run/
+
+# 日志与临时文件
+*.log
+*.tmp

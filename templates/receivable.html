@@ -1,0 +1,82 @@
+<!-- 应收对账函模板（占位符 {{...}}，可在「模板设置」页实时预览） -->
+<div class="doc">
+  <div class="head">
+    {{logoImg}}
+    <div class="company">{{ourCompanyName}}</div>
+    <div class="company-sub">{{ourCompanyAddress}}　电话：{{ourCompanyPhone}}</div>
+  </div>
+
+  <h1>{{directionTitle}}</h1>
+  <div class="meta">
+    <span>编号：{{serialNo}}</span>
+    <span>日期：{{issueDateText}}</span>
+  </div>
+
+  <div class="to">致：{{unitName}}</div>
+
+  <p class="body">{{bodyParagraph}}</p>
+
+  <p class="body key-line">
+    截至 {{cutoffDateText}} 止，{{directionWord}}款项余额为 <b class="amount-strong">{{closingText}}</b>（大写：{{closingDaxie}}）。
+    {{multiHint}}
+  </p>
+
+  <table class="amount">
+    <tbody>
+      {{balanceRowsHtml}}
+    </tbody>
+  </table>
+
+  <table class="period">
+    <thead>
+      <tr><th colspan="2">本期发生额（{{periodText}}）</th></tr>
+    </thead>
+    <tbody>
+      {{periodRowsHtml}}
+    </tbody>
+  </table>
+
+  <table class="reply">
+    <thead>
+      <tr><th colspan="2">回 函 联（请贵公司填写后签章寄回）</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="chk">
+          <span class="box">□</span> 截至 {{cutoffDateText}} 止，上述信息证明无误。<br />
+          <span class="box">□</span> 上述信息不符，差异事项及金额说明如下：
+        </td>
+      </tr>
+      <tr><td class="blank"></td></tr>
+      <tr><td class="blank"></td></tr>
+      <tr><td class="blank"></td></tr>
+      <tr>
+        <td class="sign-cell">
+          <div class="sign-row">
+            <span>对方单位（签章）：______________________</span>
+            <span>经办人：____________</span>
+            <span>日期：________________</span>
+          </div>
+          <div class="hint">（签章请加盖公章或财务专用章，多页请加盖骑缝章）</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="sign-row our">
+    <span>我方单位（盖章）：{{ourCompanyName}}</span>
+    <span>经办人：{{ourContact}}</span>
+    <span>日期：{{issueDateText}}</span>
+  </div>
+
+  <div class="foot">
+    本函仅用于双方核对往来款项余额，不构成任何债权债务的确认、变更或放弃。<br />
+    <span class="trace">{{traceLine}}</span>
+  </div>
+</div>
+{{detailSection}}
+{{notesSection}}
+
+<style>
+  {{commonStyle}}
+</style>
